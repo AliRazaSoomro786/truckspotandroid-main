@@ -52,7 +52,6 @@ import com.truckspot.request.updateLogRequest
 import com.truckspot.utils.*
 import com.truckspot.utils.AlertCalculationUtils.decimalHours
 import com.truckspot.utils.AlertCalculationUtils.getHours
-import com.truckspot.utils.AlertCalculationUtils.getHoursIntoMinutes
 import com.truckspot.utils.PrefConstants.DRIVING_PER_DAY
 import com.truckspot.utils.PrefConstants.DUTY_PER_DAY
 import com.truckspot.utils.PrefConstants.EIGHT_DAY_PERIOD
@@ -658,9 +657,6 @@ class HomeFragment : Fragment(), OnClickListener {
         }
         Log.d(TAG, "updating mode --> $mode")
         prefRepository.setMode(mode)
-        val shippingNumberInt = prefRepository.getShippingNumber().toIntOrNull() ?: 0
-        val trailerNumberInt = prefRepository.getTrailerNumber().toIntOrNull() ?: 0
-
 
         Log.d("checkingshipping","shippinghere : ${prefRepository.getShippingNumber()}")
 
@@ -668,11 +664,21 @@ class HomeFragment : Fragment(), OnClickListener {
             mOdometer = "23232"
             mEngineHours = "2122323"
         }
+
         val logRequest = mOdometer?.let {
             mEngineHours?.let { it1 ->
-                Log.d("checktelemetery","here-it-is: ${it1}")
+                Log.d("checktelemetery", "here-it-is: ${it1}")
+                var shippingNumber = 0
+                if (prefRepository.getShippingNumber().isNotEmpty())
+                    shippingNumber = prefRepository.getShippingNumber().toInt()
+
+                var trailerNumber = 0
+                if (prefRepository.getTrailerNumber().isNotEmpty())
+                    trailerNumber = prefRepository.getTrailerNumber().toInt()
+
                 AddLogRequest(
-                    mode, it, it1, 2,location,1,prefRepository.getShippingNumber(), prefRepository.getTrailerNumber(),"1C6RREHT5NN451094"
+                    mode, it, it1, 2, location, 1, shippingNumber,
+                    trailerNumber, "1C6RREHT5NN451094"
                 )
             }
         }

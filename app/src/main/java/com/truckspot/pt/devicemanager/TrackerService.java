@@ -242,7 +242,7 @@ public class TrackerService extends BleProfileService implements TrackerManagerC
 
 		if(prefRepository.getLogTimeDifference()>3600000&&mTm.mGeoloc.speed>7 ) { //
 		String mode ="d";
-			AddLogRequest logRequest = new AddLogRequest(mode, mTm.mOdometer, mTm.mEngineHours, 1, location,1,"0","0","1C6RREHT5NN451094");
+			AddLogRequest logRequest = new AddLogRequest(mode, mTm.mOdometer, mTm.mEngineHours, 1, location,1,0,0,"1C6RREHT5NN451094");
 			repository.addLogJava(logRequest);
 			prefRepository.setLastLogTime();
 		}

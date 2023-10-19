@@ -5,31 +5,22 @@ import android.content.Context
 import android.graphics.Color
 import android.location.Address
 import android.location.Geocoder
-import android.os.Bundle
+import android.os.Handler
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.snackbar.Snackbar
 import com.truckspot.R
+import com.truckspot.fragment.ui.home.HomeViewModel
 import com.truckspot.models.UserLog
+import com.truckspot.request.AddLogRequest
 import com.truckspot.utils.AlertCalculationUtils.decimalLocation
 import java.io.IOException
 import java.util.*
-import android.os.Handler
-import android.widget.Toast
-import androidx.lifecycle.ViewModelProvider
-import com.truckspot.api.TruckSpotAPI
-import com.truckspot.fragment.ui.home.HomeViewModel
-import com.truckspot.request.AddLogRequest
-import com.google.android.material.snackbar.Snackbar
-import com.truckspot.utils.Constants
-import javax.inject.Inject
-import androidx.lifecycle.lifecycleScope
-import kotlinx.coroutines.launch
 
 class LogAdaptor  (private val dataSet: List<UserLog>, private val fragmentManager: FragmentManager) :
     RecyclerView.Adapter<LogAdaptor.ViewHolder>() {
@@ -204,27 +195,6 @@ class LogAdaptor  (private val dataSet: List<UserLog>, private val fragmentManag
 
         return addressText
     }
-    private fun callAddLogAPI(log: UserLog) {
-        // Create an AddLogRequest based on the log
-        val logRequest = AddLogRequest(
-            "off",
-            "3000",
-            "2000",
-            2,
-            "loc not available",
-            2,
-            "2",
-        "2",
-            "1C6RREHT5NN451094"
-        )
-
-        // Call the addLog API
-        // You can use your API service here to call the addLog API
-        // For example:
-        // truckSpotAPI.addLog(logRequest)
-
-        // You may need to handle the response of the addLog API as needed
-    }
 
 
 
@@ -237,9 +207,8 @@ class LogAdaptor  (private val dataSet: List<UserLog>, private val fragmentManag
             2, // Example authorization_status (you can change this as needed)
             "Sample location", // Example location (you can change this as needed)
             2, // Example is_autoinsert (you can change this as needed)
-            "2", // Example additional field (you can change this as needed)
-            "2",
-            "1C6RREHT5NN451094"
+            "2".toInt(), // Example additional field (you can change this as needed)
+            "2".toInt(), "1C6RREHT5NN451094"
         )
 
         // Call the addLog API here or log the request data for testing

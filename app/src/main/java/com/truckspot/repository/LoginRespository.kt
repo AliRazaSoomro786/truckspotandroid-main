@@ -41,7 +41,7 @@ class LoginRespository @Inject constructor(private val truckSpotAPI: TruckSpotAP
 
             // The user is successfully logged in, so you can call addLog API here
              val logRequest = AddLogRequest(
-                "off", "99999", "999999", 2, "loc not available", 5,"0","0","1C6RREHT5NN451094"
+                "off", "99999", "999999", 2, "loc not available", 5,"0".toInt(),"0".toInt(),"1C6RREHT5NN451094"
             )
             try {
                 val addLogResponse = truckSpotAPI.addLog(logRequest)

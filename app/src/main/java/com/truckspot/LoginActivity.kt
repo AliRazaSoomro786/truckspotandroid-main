@@ -30,7 +30,7 @@ class LoginActivity : AppCompatActivity() {
          setContentView(binding.root)
         binding.etDriver.setText(prefRepository.getUserName())
         binding.etPass.setText(prefRepository.getPassword())
-        binding.etDriver.setText("test4")
+        binding.etDriver.setText("test1@gmail.com")
         binding.etPass.setText("test@123")
 //
         binding.rememberme.isChecked = prefRepository.getLoggedIn()

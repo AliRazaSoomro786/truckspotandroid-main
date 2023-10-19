@@ -7,8 +7,8 @@ data class AddLogRequest(
     val is_autoinsert:Int,
     val location:String?="Location Not Available",
     val eventtype:Int,
-    val shipping_number:String,
-    val trailer_number:String,
+    val shipping_number:Int,
+    val trailer_number:Int,
     val vin:String
 
 )

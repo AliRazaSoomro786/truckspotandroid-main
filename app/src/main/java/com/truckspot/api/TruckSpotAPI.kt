@@ -1,5 +1,6 @@
 package com.truckspot.api
 
+import com.google.gson.JsonElement
 import com.truckspot.models.CertifyModelItem
 import com.truckspot.models.GetLogsResponse
 import com.truckspot.models.LogResponse

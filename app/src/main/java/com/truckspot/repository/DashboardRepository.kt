@@ -43,7 +43,7 @@ class DashboardRepository @Inject constructor(private val truckSpotAPI: TruckSpo
     suspend fun addLog(addLogRequest: AddLogRequest?) {
         _logResponseLiveData.postValue(NetworkResult.Loading())
         if (addLogRequest == null) {
-             return
+            return
         }
         val response = truckSpotAPI.addLog(addLogRequest)
         Log.d("check the add log being", response.body().toString())
