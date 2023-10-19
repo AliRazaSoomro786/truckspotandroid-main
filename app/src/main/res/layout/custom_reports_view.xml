@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <View
+        android:id="@+id/view2"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/_5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/preview_mode"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Event"
+        android:textColor="@color/black"
+        android:textSize="@dimen/pdf_size"
+        app:layout_constraintEnd_toStartOf="@+id/preview_time"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="@+id/view2"
+        app:layout_constraintTop_toBottomOf="@+id/view2" />
+
+    <TextView
+        android:id="@+id/preview_time"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Time"
+        android:textColor="@color/black"
+        android:textSize="@dimen/pdf_size"
+        app:layout_constraintBottom_toBottomOf="@+id/preview_mode"
+        app:layout_constraintEnd_toStartOf="@+id/preview_hours"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/preview_mode"
+        app:layout_constraintTop_toTopOf="@+id/preview_mode" />
+
+    <TextView
+        android:id="@+id/preview_hours"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Engine Hours"
+        android:textColor="@color/black"
+        android:textSize="@dimen/pdf_size"
+        app:layout_constraintBottom_toBottomOf="@+id/preview_time"
+        app:layout_constraintEnd_toStartOf="@+id/preview_odometer"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/preview_time"
+        app:layout_constraintTop_toTopOf="@+id/preview_time" />
+
+    <TextView
+        android:id="@+id/preview_odometer"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Odometer"
+        android:textColor="@color/black"
+        android:textSize="@dimen/pdf_size"
+        app:layout_constraintBottom_toBottomOf="@+id/preview_hours"
+        app:layout_constraintEnd_toStartOf="@+id/preview_location"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/preview_hours"
+        app:layout_constraintTop_toTopOf="@+id/preview_hours" />
+
+    <TextView
+        android:id="@+id/preview_location"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Location"
+        android:textColor="@color/black"
+        android:textSize="@dimen/pdf_size"
+        app:layout_constraintBottom_toBottomOf="@+id/preview_odometer"
+        app:layout_constraintEnd_toEndOf="@+id/view2"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/preview_odometer"
+        app:layout_constraintTop_toTopOf="@+id/preview_odometer" />
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="@dimen/_3dp"
+        android:background="@color/black"
+        app:layout_constraintEnd_toEndOf="@+id/view2"
+        app:layout_constraintStart_toStartOf="@+id/view2"
+        app:layout_constraintTop_toBottomOf="@+id/preview_mode" />
+</androidx.constraintlayout.widget.ConstraintLayout>
